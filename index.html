@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AudioPaLM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="helper.js" defer></script>
+    <style>
+      td { vertical-align: middle; }
+      audio {
+        width: 20vw;
+        min-width: 100px;
+        max-width: 250px;
+      }
+      audio::-webkit-media-controls-play-button { display: inline-block !important; }
+      .container-xxxl { max-width: 1500px; }
+    </style>
+  </head>
+
+  <body>
+    <!-- ──────────────── 1. Title & Abstract ──────────────── -->
+    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+      <div class="text-center">
+        <h1>AudioPaLM</h1>
+        <h3>A Large Language Model That Can Speak and Listen</h3>
+        <p class="lead fw-bold">
+          | <a href="https://arxiv.org/abs/2306.12925" class="btn border-white bg-white fw-bold">paper</a> |
+        </p>
+        <p class="fst-italic mb-0">
+          Paul Rubenstein*, Chulayuth Asawaroengchai*, Duc Dung Nguyen*, … Neil Zeghidour, Yu Zhang, Zhishuai Zhang, Lukas Zilka, Christian Frank
+        </p>
+        <p><b>Google</b></p>
+      </div>
+
+      <p>
+        <b>Abstract.</b>
+        We introduce AudioPaLM, a large language model for speech understanding and generation.
+        AudioPaLM fuses PaLM-2 [Anil et al., 2023] and AudioLM [Borsos et al., 2022] into a unified multimodal
+        architecture that can process and generate text and speech with applications including
+        speech recognition and speech-to-speech translation. …
+      </p>
+    </div>
+
+    <!-- ──────────────── 2. Model Overview ──────────────── -->
+    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+      <h2 class="text-center">AudioPaLM Overview</h2>
+      <p class="text-center">
+        <img src="fig1.svg" height="200" width="800" class="img-fluid" alt="AudioPaLM diagram">
+      </p>
+      <p>
+        We expand the embedding matrix of a pretrained text-only model to handle audio tokens.
+        A mixed sequence of text and audio tokens is fed as input; the model decodes text or audio,
+        which latter AudioLM stages convert back to raw audio.
+      </p>
+      <div class="text-center">
+        <video style="max-width: 80%; min-width: 280px;" controls>
+          <source src="data/AudioPaLM_promo.mp4" type="video/mp4">
+          Your browser does not support HTML video.
+        </video>
+      </div>
+    </div>
+
+    <!-- ──────────────── 3. Speech-to-Speech Translation ──────────────── -->
+    <div class="container-xxl container-xxxl shadow p-5 mb-5 bg-white rounded">
+      <h3 id="s2s-section">Speech-to-Speech Translation</h3>
+      <p class="mb-0">
+        We demonstrate AudioPaLM’s ability to preserve speaker voice while translating.
+        Columns: (1) Original, (2) Ground-truth target, (3) AudioPaLM (EN-accent), (4) AudioPaLM (source-accent).
+      </p>
+
+      <div class="pt-3 table-responsive">
+        <table class="table pt-2">
+          <thead>
+            <tr>
+              <th class="text-center">Original</th>
+              <th class="text-center">CVSS-T Target</th>
+              <th class="text-center">AudioPaLM (EN)</th>
+              <th class="text-center">AudioPaLM (Src)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <!-- Only four language tabs kept -->
+        <ul class="pagination justify-content-center">
+          <li class="page-item active"><a id="s2s-lang-de" class="page-link" href="#">DE</a></li>
+          <li class="page-item"><a id="s2s-lang-fr" class="page-link" href="#">FR</a></li>
+          <li class="page-item"><a id="s2s-lang-es" class="page-link" href="#">ES</a></li>
+          <li class="page-item"><a id="s2s-lang-it" class="page-link" href="#">IT</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ──────────────── 4. Speech-to-Text Translation ──────────────── -->
+    <div class="container shadow p-5 mb-5 bg-white rounded">
+      <h3 id="s2tt-section">Speech-to-Text Translation</h3>
+      <p class="mb-0">
+        We show English translations produced by AudioPaLM. Multiple valid translations may exist.
+      </p>
+
+      <div class="container pt-3 table-responsive">
+        <table class="table pt-2">
+          <thead>
+            <tr>
+              <th class="text-center">Source-language Audio</th>
+              <th class="text-center">CVSS-T Transcript</th>
+              <th class="text-center">AudioPaLM Translation</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <!-- Four language tabs -->
+        <ul class="pagination justify-content-center">
+          <li class="page-item active"><a id="s2tt-lang-de" class="page-link" href="#">DE</a></li>
+          <li class="page-item"><a id="s2tt-lang-fr" class="page-link" href="#">FR</a></li>
+          <li class="page-item"><a id="s2tt-lang-es" class="page-link" href="#">ES</a></li>
+          <li class="page-item"><a id="s2tt-lang-it" class="page-link" href="#">IT</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
