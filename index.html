@@ -130,35 +130,134 @@ A large dataset of paired degraded and high-quality tracks. We simulate common d
       </div>
     </div>
 
-    <!-- ──────────────── 3. Speech-to-Speech Translation ──────────────── -->
-    <div class="container-xxl container-xxxl shadow p-5 mb-5 bg-white rounded">
-      <h3 id="s2s-section">Speech-to-Speech Translation</h3>
-      <p class="mb-0">
-        We demonstrate AudioPaLM’s ability to preserve speaker voice while translating.
-        Columns: (1) Original, (2) Ground-truth target, (3) AudioPaLM (EN-accent), (4) AudioPaLM (source-accent).
-      </p>
+ <!-- ──────────────── 3. Category-based Audio Demos ──────────────── -->
+<div class="container-xxl container-xxxl shadow p-5 mb-5 bg-white rounded">
+  <h3 id="s2s-section">Category-wise Audio Enhancement</h3>
+  <p class="mb-0">
+    Click a category to preview audio demos. Columns: (1) Text Prompt, (2) Music to Enhance (input),
+    (3) Inferred (SonicMaster), (4) Ground Truth (clean/mastered).
+  </p>
 
-      <div class="pt-3 table-responsive">
-        <table class="table pt-2">
-          <thead>
-            <tr>
-              <th class="text-center">Original</th>
-              <th class="text-center">CVSS-T Target</th>
-              <th class="text-center">AudioPaLM (EN)</th>
-              <th class="text-center">AudioPaLM (Src)</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-        <!-- Only four language tabs kept -->
-        <ul class="pagination justify-content-center">
-          <li class="page-item active"><a id="s2s-lang-de" class="page-link" href="#">DE</a></li>
-          <li class="page-item"><a id="s2s-lang-fr" class="page-link" href="#">FR</a></li>
-          <li class="page-item"><a id="s2s-lang-es" class="page-link" href="#">ES</a></li>
-          <li class="page-item"><a id="s2s-lang-it" class="page-link" href="#">IT</a></li>
-        </ul>
-      </div>
-    </div>
+  <!-- Category tabs -->
+  <ul id="cat-tabs" class="pagination justify-content-center pt-3 mb-3">
+    <li class="page-item active"><a class="page-link" href="#" data-cat="EQ">EQ</a></li>
+    <li class="page-item"><a class="page-link" href="#" data-cat="Dynamics">Dynamics</a></li>
+    <li class="page-item"><a class="page-link" href="#" data-cat="Reverb">Reverb</a></li>
+    <li class="page-item"><a class="page-link" href="#" data-cat="Amplitude">Amplitude</a></li>
+    <li class="page-item"><a class="page-link" href="#" data-cat="Stereo">Stereo</a></li>
+  </ul>
+
+  <div class="table-responsive">
+    <table class="table align-middle">
+      <thead>
+        <tr>
+          <th class="text-center" style="width:28%">Text Prompt</th>
+          <th class="text-center" style="width:24%">Music to Enhance</th>
+          <th class="text-center" style="width:24%">Inferred</th>
+          <th class="text-center" style="width:24%">Ground Truth</th>
+        </tr>
+      </thead>
+      <tbody id="cat-tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  // === 1) Put your audio sample lists here ===
+  // Each item: { prompt, input, inferred, gt }
+  const DEMOS = {
+    EQ: [
+      {
+        prompt: "Reduce the muddiness and add clarity.",
+        input:   "audio/EQ/sample1_input.mp3",
+        inferred:"audio/EQ/sample1_inferred.mp3",
+        gt:      "audio/EQ/sample1_gt.mp3",
+      },
+      {
+        prompt: "Make the mix brighter and bring vocals forward.",
+        input:   "audio/EQ/sample2_input.mp3",
+        inferred:"audio/EQ/sample2_inferred.mp3",
+        gt:      "audio/EQ/sample2_gt.mp3",
+      }
+    ],
+    Dynamics: [
+      {
+        prompt: "Restore dynamics; reduce over-compression.",
+        input:   "audio/Dynamics/sample1_input.mp3",
+        inferred:"audio/Dynamics/sample1_inferred.mp3",
+        gt:      "audio/Dynamics/sample1_gt.mp3",
+      }
+    ],
+    Reverb: [
+      {
+        prompt: "Remove excess room reverb; make it drier.",
+        input:   "audio/Reverb/sample1_input.mp3",
+        inferred:"audio/Reverb/sample1_inferred.mp3",
+        gt:      "audio/Reverb/sample1_gt.mp3",
+      }
+    ],
+    Amplitude: [
+      {
+        prompt: "Increase loudness without distortion.",
+        input:   "audio/Amplitude/sample1_input.mp3",
+        inferred:"audio/Amplitude/sample1_inferred.mp3",
+        gt:      "audio/Amplitude/sample1_gt.mp3",
+      }
+    ],
+    Stereo: [
+      {
+        prompt: "Widen the stereo image for more space.",
+        input:   "audio/Stereo/sample1_input.mp3",
+        inferred:"audio/Stereo/sample1_inferred.mp3",
+        gt:      "audio/Stereo/sample1_gt.mp3",
+      }
+    ]
+  };
+
+  // === 2) Render helper ===
+  function renderCategory(cat) {
+    const tbody = document.getElementById("cat-tbody");
+    const rows = (DEMOS[cat] || []).map(d => `
+      <tr>
+        <td><div class="small">${d.prompt}</div></td>
+        <td class="text-center">
+          <audio controls preload="none">
+            <source src="${d.input}" type="audio/mpeg">
+          </audio>
+        </td>
+        <td class="text-center">
+          <audio controls preload="none">
+            <source src="${d.inferred}" type="audio/mpeg">
+          </audio>
+        </td>
+        <td class="text-center">
+          <audio controls preload="none">
+            <source src="${d.gt}" type="audio/mpeg">
+          </audio>
+        </td>
+      </tr>
+    `).join("");
+    tbody.innerHTML = rows || `<tr><td colspan="4" class="text-center text-muted">No samples yet for ${cat}.</td></tr>`;
+  }
+
+  // === 3) Tabs wiring ===
+  document.getElementById("cat-tabs").addEventListener("click", (e) => {
+    const a = e.target.closest("a[data-cat]");
+    if (!a) return;
+    e.preventDefault();
+
+    // set active tab
+    [...document.querySelectorAll("#cat-tabs .page-item")].forEach(li => li.classList.remove("active"));
+    a.parentElement.classList.add("active");
+
+    // render
+    renderCategory(a.dataset.cat);
+  });
+
+  // Initial render
+  renderCategory("EQ");
+</script>
+
 
     <!-- ──────────────── 4. Speech-to-Text Translation ──────────────── -->
     <div class="container shadow p-5 mb-5 bg-white rounded">
