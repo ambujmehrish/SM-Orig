@@ -49,19 +49,20 @@
   }
 </style>
 
-<style>
-    /* Position the logo at the top-left, separate from the container */
-    body {
+  <style>
+    /* Make the container positioned, so the logo can be placed inside it */
+    .container.position-relative {
       position: relative;
-      padding-top: 100px; /* give space so container content isn’t hidden under the logo */
+      padding-top: 80px; /* make room for the logo */
     }
+    /* Style the logo inside the container */
     .site-logo {
       position: absolute;
       top: 20px;
       left: 20px;
       width: 120px;
       height: auto;
-      z-index: 1000;
+      z-index: 10;
     }
   </style>
 
@@ -97,11 +98,16 @@
     vertical-align: middle;
   }
 </style>
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-  <div class="text-center">
-    <!-- TITLE ROW -->
-   <!-- Main content container -->
-  <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+<!-- Main content container, now position-relative -->
+  <div class="container position-relative pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    
+    <!-- Logo inside the container, top-left -->
+    <img
+      src="Images/SMLogo.png"
+      alt="SonicMaster logo"
+      class="site-logo"
+    />
+
     <div class="text-center">
       <!-- TITLE ROW -->
       <div class="row justify-content-center mb-3">
