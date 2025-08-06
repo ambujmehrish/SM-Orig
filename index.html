@@ -35,56 +35,79 @@
 
   <body>
     <!-- ──────────────── 1. Title & Abstract ──────────────── -->
+    <!-- ──────────────── 1. Title & Abstract ──────────────── -->
     <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-<div class="text-center">
- <!-- Flex container with icon on the left -->
-  <div class="d-flex align-items-center justify-content-center mb-3">
-    <!-- Larger icon on the left -->
-    <img src="Images/sonicmaster.jpeg"
-         alt="SonicMaster logo"
-         style="width:80px; height:auto;"
-         class="me-3">
-    <!-- Title -->
-    <h1 class="mb-0">SonicMaster</h1>
-  </div>
-  <!-- Title row with left/right logo placeholders -->
-<div class="row align-items-center mb-3">
-  <!-- Left logo (placeholder) -->
-  <div class="col-2 d-none d-sm-block text-start">
-    <img src="Images/logo-left.png" alt="Partner/Lab logo"
-         class="side-logo">
-  </div>
+      <div class="text-center">
+        <!-- TITLE ROW with side-logo placeholders -->
+        <div class="row align-items-center mb-3">
+          <!-- Left logo (placeholder) -->
+          <div class="col-2 d-none d-sm-block text-start">
+            <img
+              src="Images/logo-left.png"
+              alt="Partner/Lab logo"
+              class="side-logo"
+            />
+          </div>
 
-  <!-- Center title + icon -->
-  <div class="col-12 col-sm-8 text-center">
-    <div class="d-inline-flex align-items-center">
-      <img src="Images/sonicmaster.jpeg" alt="SonicMaster logo"
-           style="width:80px; height:auto;" class="me-3">
-      <h1 class="mb-0">SonicMaster</h1>
-    </div>
-  </div>
+          <!-- Center title + icon -->
+          <div class="col-12 col-sm-8 text-center">
+            <div class="d-inline-flex align-items-center">
+              <img
+                src="Images/sonicmaster.jpeg"
+                alt="SonicMaster logo"
+                style="width:80px; height:auto;"
+                class="me-3"
+              />
+              <h1 class="mb-0">SonicMaster</h1>
+            </div>
+          </div>
 
-  <!-- Right logo (placeholder) -->
-  <div class="col-2 d-none d-sm-block text-end">
-    <img src="Images/logo-right.png" alt="Partner/Institute logo"
-         class="side-logo">
-  </div>
-</div>
+          <!-- Right logo (placeholder) -->
+          <div class="col-2 d-none d-sm-block text-end">
+            <img
+              src="Images/logo-right.png"
+              alt="Partner/Institute logo"
+              class="side-logo"
+            />
+          </div>
+        </div>
 
-
-  <h3>Towards Controllable All-in-One Music Restoration and Mastering</h3>
-  <p class="lead fw-bold">
-    | <a href="https://arxiv.org/abs/2306.12925" class="btn border-white bg-white fw-bold">paper</a> |
-  </p>
+        <!-- Subtitle and paper link -->
+        <h3 class="mt-3">Towards Controllable All-in-One Music Restoration and Mastering</h3>
+        <p class="lead fw-bold">
+          | <a href="https://arxiv.org/abs/2306.12925" class="btn border-white bg-white fw-bold">paper</a> |
+        </p>
         <p class="fst-italic mb-0">
           Jan Melechovsky*, Ambuj Mehrish, Dorien Herremans
         </p>
-        <p><b>The Audio, Music, and AI Lab at Singapore University of Technology and Design (SUTD)</b></p>
+        <p>
+          <b>
+            The Audio, Music, and AI Lab at Singapore University of Technology and Design (SUTD)
+          </b>
+        </p>
       </div>
 
+      <!-- Abstract -->
       <p>
         <b>Abstract.</b>
-Music recordings often suffer from audio quality issues such as excessive reverberation, distortion, clipping, tonal imbalances, and a narrowed stereo image, especially when created in non-professional settings without specialized equipment or expertise. These problems are typically corrected using separate specialized tools and manual adjustments. In this paper, we introduce SonicMaster, the first unified generative model for music restoration and mastering that addresses a broad spectrum of audio artifacts with text-based control. SonicMaster is conditioned on natural language instructions to apply targeted enhancements, or can operate in an automatic mode for general restoration. To train this model, we construct JamendoDegrad, a large dataset of paired degraded and high-quality tracks by simulating common degradation types with nineteen degradation functions belonging to five degradation groups: equalization, dynamics, reverb, amplitude, and stereo. Our approach leverages a flow-matching generative training paradigm to learn an audio transformation that maps degraded inputs to their cleaned, mastered versions guided by text prompts. Objective evaluations on multiple audio quality metrics demonstrate that SonicMaster significantly improves sound quality across all artifact categories. Furthermore, subjective listening tests confirm that listeners prefer SonicMaster’s enhanced outputs over both the original degraded audio and those produced by baseline methods, highlighting the effectiveness of our unified approach.
+        Music recordings often suffer from audio quality issues such as excessive reverberation,
+        distortion, clipping, tonal imbalances, and a narrowed stereo image, especially when
+        created in non-professional settings without specialized equipment or expertise. These
+        problems are typically corrected using separate specialized tools and manual adjustments.
+        In this paper, we introduce SonicMaster, the first unified generative model for music
+        restoration and mastering that addresses a broad spectrum of audio artifacts with
+        text-based control. SonicMaster is conditioned on natural language instructions to apply
+        targeted enhancements, or can operate in an automatic mode for general restoration. To
+        train this model, we construct JamendoDegrad, a large dataset of paired degraded and
+        high-quality tracks by simulating common degradation types with nineteen degradation
+        functions belonging to five degradation groups: equalization, dynamics, reverb,
+        amplitude, and stereo. Our approach leverages a flow-matching generative training
+        paradigm to learn an audio transformation that maps degraded inputs to their cleaned,
+        mastered versions guided by text prompts. Objective evaluations on multiple audio
+        quality metrics demonstrate that SonicMaster significantly improves sound quality across
+        all artifact categories. Furthermore, subjective listening tests confirm that listeners
+        prefer SonicMaster’s enhanced outputs over both the original degraded audio and those
+        produced by baseline methods, highlighting the effectiveness of our unified approach.
       </p>
     </div>
 
