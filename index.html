@@ -31,6 +31,24 @@
   }
 </style>
 
+<style>
+  .btn-unified {
+    background-color: #212529;
+    border-color: #212529;
+    color: #fff;
+  }
+  .btn-unified:hover {
+    background-color: #343a40;
+    border-color: #343a40;
+  }
+  .icon-btn i,
+  .icon-btn img {
+    font-size: 1.2rem;
+    vertical-align: middle;
+    margin-right: 0.3em;
+  }
+</style>
+
   </head>
 
   <body>
@@ -47,11 +65,8 @@
   }
 </style>
 <!-- ──────────────── 1. Title & Abstract ──────────────── -->
-<style>
-  .side-logo {
-    width: 200px;
-    height: auto;
-  }
+<!-- ──────────────── 1. Title & Abstract ──────────────── -->
+<!-- <style>
   .main-logo {
     width: 80px;
     height: auto;
@@ -60,46 +75,43 @@
     font-size: 1.2rem;
     vertical-align: middle;
   }
-</style>
+</style> -->
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
   <div class="text-center">
-    <!-- TITLE ROW with side-logo placeholders -->
-    <div class="row align-items-center mb-3">
-      <!-- Left logo -->
-      <div class="col-2 d-none d-sm-block text-start">
-        <img src="Images/sonicmaster.jpeg" alt="Partner/Lab logo" class="side-logo" />
-      </div>
-
-      <!-- Center title + icon -->
-      <div class="col-12 col-sm-8 text-center">
+    <!-- TITLE ROW -->
+    <div class="row justify-content-center mb-3">
+      <div class="col-12 text-center">
         <div class="d-inline-flex align-items-center">
           <img src="Images/SMLogo.png" alt="SonicMaster logo" class="main-logo me-3" />
           <h1 class="mb-0">SonicMaster</h1>
         </div>
-        <!-- Under Peer Review instead of CVPR -->
         <p class="h5 text-secondary mt-2">Under Peer Review</p>
 
         <!-- icon buttons -->
-        <div class="mt-3">
-          <a href="https://arxiv.org/abs/2306.12925" class="btn btn-outline-dark icon-btn me-2">
-            <i class="bi bi-file-earmark-pdf-fill"></i> Paper
-          </a>
-          <a href="https://arxiv.org/abs/2306.12925" class="btn btn-outline-dark icon-btn me-2">
-            <i class="bi bi-file-earmark-arrow-up-fill"></i> arXiv
-          </a>
-          <a href="YOUR_DATASET_LINK_HERE" class="btn btn-outline-dark icon-btn me-2">
-            <i class="bi bi-database-fill"></i> Dataset
-          </a>
-          <a href="YOUR_CODE_LINK_HERE" class="btn btn-outline-dark icon-btn">
-            <i class="bi bi-code-slash"></i> Code
-          </a>
-        </div>
-      </div>
+ <!-- in your button area -->
+<div class="mt-3">
+  <a href="https://arxiv.org/abs/2306.12925" class="btn btn-unified icon-btn me-2">
+    <i class="bi bi-file-earmark-pdf-fill"></i>
+    Paper
+  </a>
 
-      <!-- Right logo -->
-      <div class="col-2 d-none d-sm-block text-end">
-        <img src="Images/AMAAI.jpg" alt="Partner/Institute logo" class="side-logo" />
+  <a href="https://arxiv.org/abs/2306.12925" class="btn btn-unified icon-btn me-2">
+    <!-- replace with your local arXiv logo file -->
+    <img src="Images/arxiv-logo.png" alt="arXiv" style="width:1.2em; height:auto;">
+    arXiv
+  </a>
+
+  <a href="YOUR_VIDEO_LINK_HERE" class="btn btn-unified icon-btn me-2">
+    <i class="bi bi-youtube"></i>
+    Video
+  </a>
+
+  <a href="YOUR_CODE_LINK_HERE" class="btn btn-unified icon-btn">
+    <i class="bi bi-github"></i>
+    Code
+  </a>
+</div>
       </div>
     </div>
 
@@ -136,6 +148,7 @@
     produced by baseline methods, highlighting the effectiveness of our unified approach.
   </p>
 </div>
+
 
 
     <section id="key-contributions" class="container my-5">
