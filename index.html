@@ -61,29 +61,14 @@
       top: 25px;
       left: 20px;
       width: 200px;
+      border-radius: 80%;  /* make it circular */
+      object-fit: cover;   /* crop/scale to fill the circle */
       height: auto;
       z-index: 10;
     }
   </style>
 
-  <style>
-  /* Make the container positioned, so the logo can be placed inside it */
-  .container.position-relative {
-    position: relative;
-    padding-top: 80px; /* make room for the logo */
-  }
-  /* Style the logo inside the container as a circle */
-  .site-logo {
-    position: absolute;
-    top: 25px;
-    left: 20px;
-    width: 200px;        /* diameter */
-    height: 200px;       /* same as width */
-    border-radius: 50%;  /* make it circular */
-    object-fit: cover;   /* crop/scale to fill the circle */
-    z-index: 10;
-  }
-</style>
+
 
 
   </head>
