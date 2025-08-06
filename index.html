@@ -254,16 +254,16 @@
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
   <h2 class="text-center">SonicMaster Dataset</h2>
 
-  <!-- Dataset link button -->
+  <!-- Dataset link button
   <p class="text-center my-4">
     <a href="YOUR_DATASET_LINK_HERE" class="dataset-btn">
       Dataset
     </a>
-  </p>
+  </p> -->
 
   <!-- Justified description -->
   <p class="dataset-desc">
-    A curated corpus of 25 k paired clean and degraded 30 s music segments, simulated with 19 degradations across five categories: EQ, dynamics, reverb, amplitude, and stereo.
+    Due to the absence of natural language instruction-prompted music restoration datasets, we have generated SonicMaster music restoration and mastering dataset with text prompts. We source $580$k recordings from the Jamendo [1] under creative commons licence using the official Jamendo API. To ensure equal representation of genre, we defined $10$ groups, where each group consists of multiple related genre tags, e.g., Hip-Hop genre group containing the following tags: "rap", "hiphop", "trap", "alternativehiphop", "gangstarap"
   </p>
 
   <!-- Pipeline image -->
@@ -432,6 +432,9 @@
       Melechovsky, J.; Mehrish, A.; Herremans, D. (2025).  
       <em>SonicMaster: Towards Controllable All-in-One Music Restoration and Mastering</em>.  
       arXiv.
+    </li>
+    <li>
+      Jamendo API. <a href="https://developer.jamendo.com/v3.0/docs">Jamendo API Documentation</a>.
     </li>
   </ul>
 </div>
