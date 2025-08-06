@@ -46,80 +46,97 @@
     height: 300px;
   }
 </style>
-    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-      <div class="text-center">
-        <!-- TITLE ROW with side-logo placeholders -->
-        <div class="row align-items-center mb-3">
-          <!-- Left logo (placeholder) -->
-          <div class="col-2 d-none d-sm-block text-start">
-            <img
-              src="Images/sonicmaster.jpeg"
-              alt="Partner/Lab logo"
-              class="side-logo"
-            />
-          </div>
+<!-- ──────────────── 1. Title & Abstract ──────────────── -->
+<style>
+  .side-logo {
+    width: 200px;
+    height: auto;
+  }
+  .main-logo {
+    width: 80px;
+    height: auto;
+  }
+  .icon-btn i {
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+</style>
 
-          <!-- Center title + icon -->
-          <div class="col-12 col-sm-8 text-center">
-            <div class="d-inline-flex align-items-center">
-              <img
-                src="Images/SMLogo.png"
-                alt="SonicMaster logo"
-                style="width:80px; height:auto;"
-                class="me-3"
-              />
-              <h1 class="mb-0">SonicMaster</h1>
-            </div>
-          </div>
-
-          <!-- Right logo (placeholder) -->
-          <div class="col-2 d-none d-sm-block text-end">
-            <img
-              src="Images/AMAAI.jpg"
-              alt="Partner/Institute logo"
-              class="side-logo"
-            />
-          </div>
-        </div>
-
-        <!-- Subtitle and paper link -->
-        <h3 class="mt-3">Towards Controllable All-in-One Music Restoration and Mastering</h3>
-        <p class="lead fw-bold">
-          | <a href="https://arxiv.org/abs/2306.12925" class="btn border-white bg-white fw-bold">paper</a> |
-        </p>
-        <p class="fst-italic mb-0">
-          Jan Melechovsky*, Ambuj Mehrish, Dorien Herremans
-        </p>
-        <p>
-          <b>
-            The Audio, Music, and AI Lab at Singapore University of Technology and Design (SUTD)
-          </b>
-        </p>
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+  <div class="text-center">
+    <!-- TITLE ROW with side-logo placeholders -->
+    <div class="row align-items-center mb-3">
+      <!-- Left logo -->
+      <div class="col-2 d-none d-sm-block text-start">
+        <img src="Images/sonicmaster.jpeg" alt="Partner/Lab logo" class="side-logo" />
       </div>
 
-      <!-- Abstract -->
-      <p>
-        <b>Abstract.</b>
-        Music recordings often suffer from audio quality issues such as excessive reverberation,
-        distortion, clipping, tonal imbalances, and a narrowed stereo image, especially when
-        created in non-professional settings without specialized equipment or expertise. These
-        problems are typically corrected using separate specialized tools and manual adjustments.
-        In this paper, we introduce SonicMaster, the first unified generative model for music
-        restoration and mastering that addresses a broad spectrum of audio artifacts with
-        text-based control. SonicMaster is conditioned on natural language instructions to apply
-        targeted enhancements, or can operate in an automatic mode for general restoration. To
-        train this model, we construct JamendoDegrad, a large dataset of paired degraded and
-        high-quality tracks by simulating common degradation types with nineteen degradation
-        functions belonging to five degradation groups: equalization, dynamics, reverb,
-        amplitude, and stereo. Our approach leverages a flow-matching generative training
-        paradigm to learn an audio transformation that maps degraded inputs to their cleaned,
-        mastered versions guided by text prompts. Objective evaluations on multiple audio
-        quality metrics demonstrate that SonicMaster significantly improves sound quality across
-        all artifact categories. Furthermore, subjective listening tests confirm that listeners
-        prefer SonicMaster’s enhanced outputs over both the original degraded audio and those
-        produced by baseline methods, highlighting the effectiveness of our unified approach.
-      </p>
+      <!-- Center title + icon -->
+      <div class="col-12 col-sm-8 text-center">
+        <div class="d-inline-flex align-items-center">
+          <img src="Images/SMLogo.png" alt="SonicMaster logo" class="main-logo me-3" />
+          <h1 class="mb-0">SonicMaster</h1>
+        </div>
+        <!-- Under Peer Review instead of CVPR -->
+        <p class="h5 text-secondary mt-2">Under Peer Review</p>
+
+        <!-- icon buttons -->
+        <div class="mt-3">
+          <a href="https://arxiv.org/abs/2306.12925" class="btn btn-outline-dark icon-btn me-2">
+            <i class="bi bi-file-earmark-pdf-fill"></i> Paper
+          </a>
+          <a href="https://arxiv.org/abs/2306.12925" class="btn btn-outline-dark icon-btn me-2">
+            <i class="bi bi-file-earmark-arrow-up-fill"></i> arXiv
+          </a>
+          <a href="YOUR_DATASET_LINK_HERE" class="btn btn-outline-dark icon-btn me-2">
+            <i class="bi bi-database-fill"></i> Dataset
+          </a>
+          <a href="YOUR_CODE_LINK_HERE" class="btn btn-outline-dark icon-btn">
+            <i class="bi bi-code-slash"></i> Code
+          </a>
+        </div>
+      </div>
+
+      <!-- Right logo -->
+      <div class="col-2 d-none d-sm-block text-end">
+        <img src="Images/AMAAI.jpg" alt="Partner/Institute logo" class="side-logo" />
+      </div>
     </div>
+
+    <!-- Subtitle and authors -->
+    <h3 class="mt-3">Towards Controllable All-in-One Music Restoration and Mastering</h3>
+    <p class="fst-italic mb-0">
+      Jan Melechovsky*, Ambuj Mehrish, Dorien Herremans
+    </p>
+    <p class="lead fw-bold mt-1">
+      The Audio, Music, and AI Lab at Singapore University of Technology and Design (SUTD)
+    </p>
+  </div>
+
+  <!-- Abstract -->
+  <p>
+    <b>Abstract.</b>
+    Music recordings often suffer from audio quality issues such as excessive reverberation,
+    distortion, clipping, tonal imbalances, and a narrowed stereo image, especially when
+    created in non-professional settings without specialized equipment or expertise. These
+    problems are typically corrected using separate specialized tools and manual adjustments.
+    In this paper, we introduce SonicMaster, the first unified generative model for music
+    restoration and mastering that addresses a broad spectrum of audio artifacts with
+    text-based control. SonicMaster is conditioned on natural language instructions to apply
+    targeted enhancements, or can operate in an automatic mode for general restoration. To
+    train this model, we construct JamendoDegrad, a large dataset of paired degraded and
+    high-quality tracks by simulating common degradation types with nineteen degradation
+    functions belonging to five degradation groups: equalization, dynamics, reverb,
+    amplitude, and stereo. Our approach leverages a flow-matching generative training
+    paradigm to learn an audio transformation that maps degraded inputs to their cleaned,
+    mastered versions guided by text prompts. Objective evaluations on multiple audio
+    quality metrics demonstrate that SonicMaster significantly improves sound quality across
+    all artifact categories. Furthermore, subjective listening tests confirm that listeners
+    prefer SonicMaster’s enhanced outputs over both the original degraded audio and those
+    produced by baseline methods, highlighting the effectiveness of our unified approach.
+  </p>
+</div>
+
 
     <section id="key-contributions" class="container my-5">
   <h2 class="mb-4">Key Contributions</h2>
